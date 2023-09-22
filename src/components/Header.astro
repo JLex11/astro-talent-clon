@@ -1,0 +1,77 @@
+---
+import TalentIcon from './Icons/TalentIcon.astro'
+import LinkButton from './LinkButton.astro'
+---
+
+<header class='Open'>
+  <div class='HeaderLogo'>
+    <a href='/' class='ContainerLogo' title='TalentLogo'>
+      <TalentIcon />
+    </a>
+    <nav class='NavOptions'>
+      <a href='/job_search'>Encuentra un trabajo</a>
+      <a href='/salary_search'>Tu salario ideal</a>
+      <a href='/tax_calculator'>Calcular impuestos</a>
+    </nav>
+    <div class='AcessOptions'>
+      <LinkButton href={'/login'} color='white'>Iniciar sesión</LinkButton>
+      <LinkButton href={'/enterprises'} color='orange'>Para empleadores</LinkButton>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    align-items: center;
+    animation: IntoAnimation 0.5s ease-in-out alternate-reverse;
+    backdrop-filter: blur(0.31rem);
+    background-color: #ffffffb9;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: space-around;
+    padding: 1.5rem 0.3rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  @keyframes IntoAnimation {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(0, -100%, 0);
+    }
+  }
+
+  header a {
+    font-size: 11pt;
+    white-space: nowrap;
+  }
+
+  header .NavOptions,
+  header .AcessOptions {
+    align-items: center;
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+  }
+
+  header .NavOptions a {
+    border-radius: 0.6rem;
+    padding: 0.6rem;
+    transition: background-color 0.3s;
+  }
+
+  header .NavOptions a:hover {
+    background-color: var(--grey-light);
+  }
+
+  header .HeaderLogo {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+</style>
