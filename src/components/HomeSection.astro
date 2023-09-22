@@ -1,0 +1,53 @@
+---
+import LinkButton from './LinkButton.astro'
+
+export interface Props {
+  picture: string
+  title: string
+  description: string
+  link: {
+    href: string
+    label: string
+  }
+}
+
+const { picture, title, description, link } = Astro.props
+---
+
+<section class='HomeSection'>
+  <div class='AniPicture'>
+    <img src={picture} alt={`talent-${title}`} />
+  </div>
+  <div class='SectionInfo'>
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <LinkButton href={link.href} color='orange'>{link.label || 'Más información'}</LinkButton>
+  </div>
+</section>
+
+<style>
+  section.HomeSection {
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 1.8rem 0;
+  }
+
+  .AniPicture img {
+    width: 100%;
+    filter: drop-shadow(-1.2rem -0.12rem 0.93rem rgba(0, 0, 0, 0.25));
+  }
+
+  .HomeSection:nth-child(2n) .AniPicture {
+    order: 2;
+  }
+
+  .SectionInfo {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.2rem;
+    width: 100%;
+  }
+</style>
