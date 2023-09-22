@@ -1,0 +1,37 @@
+---
+export interface Props {
+  href: string
+  color: 'white' | 'orange'
+}
+
+const { href, color } = Astro.props
+---
+
+<a href={href} class={`LinkButton btn-${color}`}><slot /></a>
+
+<style>
+  .LinkButton {
+    border-radius: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+  .LinkButton.btn-white {
+    border: 0.06rem solid var(--violate-light);
+  }
+
+  .LinkButton.btn-white:hover {
+    background-color: var(--grey-dark);
+  }
+
+  .LinkButton.btn-orange {
+    border: 0.06rem solid var(--orange);
+    color: var(--orange);
+  }
+
+  .LinkButton.btn-orange:hover {
+    background-color: var(--orange);
+    color: var(--color-bg);
+  }
+</style>
