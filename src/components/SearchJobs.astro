@@ -1,0 +1,55 @@
+---
+import SearchBar from './SearchBar.astro'
+
+export interface Props {
+  search: string
+  location: string
+}
+
+const { search, location } = Astro.props
+---
+
+<section class='SearchJobs'>
+  <form class='SearchJobsContainer'>
+    <SearchBar label={'¿Que empleo deseas?'} placeholder={'Palabras clave: empresa, competencias...'} value={search}>search</SearchBar>
+    <SearchBar label={'¿Donde?'} placeholder={'Ciudad, region, pais'} value={location}>location_on</SearchBar>
+    <button type='submit' class='LinkButton BtnForm'>Buscar</button>
+  </form>
+</section>
+
+<style>
+  .SearchJobs {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .SearchJobsContainer {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.6rem;
+  }
+
+  .LinkButton {
+    border-radius: 1.5rem;
+    padding: 0.6rem 0.9rem;
+    text-align: center;
+    transition: background-color 0.3s;
+  }
+
+  .BtnForm {
+    background-color: var(--orange);
+    border: 0.06rem solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 12pt;
+    padding: 0.93rem 1.2rem;
+  }
+
+  .BtnForm:hover {
+    background-color: white;
+    color: var(--orange);
+    border: 0.06rem solid var(--orange);
+  }
+</style>
