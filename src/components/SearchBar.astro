@@ -1,0 +1,82 @@
+---
+export interface Props {
+  label?: string
+  placeholder: string
+  value: string
+}
+
+const { label, placeholder, value } = Astro.props
+---
+
+<div class='SearchBar'>
+  <span>{label || placeholder}</span>
+  <div class='InputMask'>
+    <span class='material-symbols-outlined InputIcon'>
+      {<slot /> || 'search'}
+    </span>
+    <input type='text' placeholder={placeholder} value={value} />
+    <span class='material-symbols-outlined CloseBtn' style={{ opacity: value ? 1 : 0 }}> close</span>
+  </div>
+</div>
+
+<style>
+  .SearchBar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .SearchBar .InputMask {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .SearchBar .InputMask input {
+    background: #f5f5f5;
+    border-radius: 1.5625rem;
+    border: none;
+    font-size: 12pt;
+    padding: 0.93rem 2.5rem;
+    transition:
+      box-shadow 0.5s,
+      outline 0.2s;
+    width: 100%;
+  }
+  .SearchBar .InputMask input:hover {
+    background: #ebe7e7;
+  }
+
+  .SearchBar .InputMask input::placeholder {
+    color: rgb(167, 167, 167);
+  }
+
+  .SearchBar .InputMask input:focus {
+    outline: 0.12rem solid var(--purple);
+    box-shadow: 0 0 0.9rem #64006f4b;
+  }
+
+  .SearchBar .InputMask span {
+    position: absolute;
+  }
+
+  .SearchBar .InputMask .InputIcon {
+    left: 0.6rem;
+    color: var(--purple);
+  }
+
+  .CloseBtn {
+    border-radius: 50%;
+    color: #7e7e7e;
+    padding: 0.18rem;
+    right: 0.62rem;
+    transition:
+      opacity 0.3s,
+      background 0.3s;
+  }
+
+  .CloseBtn:hover {
+    background-color: #e6e6e6;
+    color: black;
+  }
+</style>
