@@ -8,9 +8,8 @@ npm create astro@latest -- --template basics
 [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+![Talent clone home](public\Talent_clone.png)
 
 ## 🚀 Project Structure
 
@@ -20,12 +19,31 @@ Inside of your Astro project, you'll see the following folders and files:
 /
 ├── public/
 │   └── favicon.svg
+    └── Talent_clone.png
 ├── src/
 │   ├── components/
+│   │   ├── Icons/
+│   │   │   ├── GoogleIcon.astro
+│   │   │   ├── TalentIcon.astro
 │   │   └── Card.astro
+│   │   └── Header.astro
+│   │   └── HomeSection.astro
+│   │   └── LinkButton.astro
+│   │   └── SearchBar.astro
+│   │   └── SearchJobs.astro
+│   ├── constants/
+│   │   └── home_sections.json
 │   ├── layouts/
 │   │   └── Layout.astro
+│   ├── mocks/
+│   │   └── jobs.json
 │   └── pages/
+│       ├── job_search/
+│       │   ├── index.astro
+│       ├── salary_search/
+│       │   ├── index.astro
+│       ├── tax_calculator/
+│       │   ├── index.astro
 │       └── index.astro
 └── package.json
 ```
